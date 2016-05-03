@@ -1,0 +1,1 @@
+c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\desk_uwp.csproj;x86
