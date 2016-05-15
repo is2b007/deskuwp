@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>24fb9f05-9fd7-49ce-a046-3865e9699018</PackageIdentityName>
-    <IntermediateOutputPath>c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\x86\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>5700A8A258149F711BE3CA0ACBCC5F6A7E6F39824410A6274DA1B384DCA74DA9</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>24fb9f05-9fd7-49ce-a046-3865e9699018_1.0.0.0_x86__y3zbjdf7anyet</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>24fb9f05-9fd7-49ce-a046-3865e9699018_y3zbjdf7anyet!App</RegisteredUserModeAppID>
@@ -19,16 +19,20 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-03T03:56:11.115</Modified>
+      <Modified>2016-05-15T10:46:00.922</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\bin\x86\Debug\desk_uwp.exe">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.exe">
       <PackagePath>entrypoint\desk_uwp.exe</PackagePath>
-      <Modified>2016-05-03T03:56:10.114</Modified>
+      <Modified>2016-05-15T10:46:00.204</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Kosta\.nuget\packages\Google.Protobuf\3.0.0-beta2\lib\dotnet\Google.Protobuf.dll">
+      <PackagePath>Google.Protobuf.dll</PackagePath>
+      <Modified>2016-01-07T04:46:24.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -454,67 +458,67 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T13:41:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-05-03T02:23:16.518</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\background.jpg">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\background.jpg">
       <PackagePath>Assets\background.jpg</PackagePath>
       <Modified>2016-05-03T03:23:28.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-05-03T02:22:53.727</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-22T08:55:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\bin\x86\Debug\desk_uwp.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.xr.xml">
       <PackagePath>desk_uwp.xr.xml</PackagePath>
-      <Modified>2016-05-03T03:56:09.932</Modified>
+      <Modified>2016-05-15T10:46:00.013</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-05-02T17:02:11.558</Modified>
+      <Modified>2016-05-03T04:47:19.099</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-03T03:56:10.774</Modified>
+      <Modified>2016-05-15T10:46:00.691</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\kosta\documents\visual studio 2015\Projects\desk_uwp\desk_uwp\bin\x86\Debug\Core\desk_uwp.exe">
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\Core\desk_uwp.exe">
       <PackagePath>desk_uwp.exe</PackagePath>
-      <Modified>2016-05-03T03:56:11.107</Modified>
+      <Modified>2016-05-15T10:46:00.916</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

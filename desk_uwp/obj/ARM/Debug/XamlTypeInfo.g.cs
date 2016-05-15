@@ -132,19 +132,17 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[4];
             _typeNameTable[0] = "desk_uwp.deskView";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "desk_uwp.loginPage";
-            _typeNameTable[4] = "desk_uwp.MainPage";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[4];
             _typeTable[0] = typeof(global::desk_uwp.deskView);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::desk_uwp.loginPage);
-            _typeTable[4] = typeof(global::desk_uwp.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -181,7 +179,6 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
 
         private object Activate_0_deskView() { return new global::desk_uwp.deskView(); }
         private object Activate_3_loginPage() { return new global::desk_uwp.loginPage(); }
-        private object Activate_4_MainPage() { return new global::desk_uwp.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -211,13 +208,6 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             case 3:   //  desk_uwp.loginPage
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_3_loginPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  desk_uwp.MainPage
-                userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -12,7 +12,7 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Label="Add Document" Icon="Document"/>
+            <AppBarButton x:Name="saveStroke" Label="Add Document" Icon="Document" Click="saveStroke_Click"/>
             <AppBarButton Icon="AddFriend" Label="appbarbutton"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -20,7 +20,7 @@
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="Fill" />
         <Viewbox x:Name="viewInk" HorizontalAlignment="Center" Stretch="Fill">
-            <InkCanvas x:Name="inkCanvas" Width="1000" Height="1000"/>
+            <InkCanvas x:Name="inkCanvas" Width="1000" Height="1000" PointerMoved="inkCanvas_PointerMoved"/>
         </Viewbox>
         <Grid HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Grid.RowDefinitions>

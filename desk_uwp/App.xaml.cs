@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using deskx_uwp.protobuf;
 
 namespace desk_uwp
 {
@@ -22,6 +23,8 @@ namespace desk_uwp
     /// </summary>
     sealed partial class App : Application
     {
+        private static Session currentSession;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -33,6 +36,19 @@ namespace desk_uwp
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+        }
+
+        public static Session CurrentSession
+        {
+            get
+            {
+                return currentSession;
+            }
+
+            set
+            {
+                currentSession = value;
+            }
         }
 
         /// <summary>

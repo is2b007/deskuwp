@@ -132,17 +132,21 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "desk_uwp.deskView";
+            _typeNameTable = new string[6];
+            _typeNameTable[0] = "desk_uwp.sessionView";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "desk_uwp.loginPage";
+            _typeNameTable[3] = "desk_uwp.deskView";
+            _typeNameTable[4] = "desk_uwp.loginPage";
+            _typeNameTable[5] = "desk_uwp.TestExperiment";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::desk_uwp.deskView);
+            _typeTable = new global::System.Type[6];
+            _typeTable[0] = typeof(global::desk_uwp.sessionView);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::desk_uwp.loginPage);
+            _typeTable[3] = typeof(global::desk_uwp.deskView);
+            _typeTable[4] = typeof(global::desk_uwp.loginPage);
+            _typeTable[5] = typeof(global::desk_uwp.TestExperiment);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,8 +181,10 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_deskView() { return new global::desk_uwp.deskView(); }
-        private object Activate_3_loginPage() { return new global::desk_uwp.loginPage(); }
+        private object Activate_0_sessionView() { return new global::desk_uwp.sessionView(); }
+        private object Activate_3_deskView() { return new global::desk_uwp.deskView(); }
+        private object Activate_4_loginPage() { return new global::desk_uwp.loginPage(); }
+        private object Activate_5_TestExperiment() { return new global::desk_uwp.TestExperiment(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -190,9 +196,9 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  desk_uwp.deskView
+            case 0:   //  desk_uwp.sessionView
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_deskView;
+                userType.Activator = Activate_0_sessionView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -205,9 +211,23 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
                 xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  desk_uwp.loginPage
+            case 3:   //  desk_uwp.deskView
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_loginPage;
+                userType.Activator = Activate_3_deskView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  desk_uwp.loginPage
+                userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_loginPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  desk_uwp.TestExperiment
+                userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_TestExperiment;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
