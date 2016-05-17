@@ -54,7 +54,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransformOrigin" />
     </RootType>
-    <RootType FullName="desk_uwp.sessionView" />
+    <RootType FullName="desk_uwp.SessionView" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
       <RootProperty Name="Content" />
       <RootProperty Name="PrimaryCommands" />
@@ -116,7 +116,7 @@
       <RootProperty Name="TabNavigation" />
       <RootProperty Name="TabIndex" />
     </RootType>
-    <RootType FullName="desk_uwp.loginPage" />
+    <RootType FullName="desk_uwp.LoginPage" />
     <RootType FullName="desk_uwp.TestExperiment" />
   </Roots.RootTypes>
 </Roots>

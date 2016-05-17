@@ -20,6 +20,7 @@ using deskx_uwp.protobuf;
 using System.Net;
 using Google.Protobuf;
 using Windows.UI.Popups;
+using desk_uwp.protobuf;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,9 +29,9 @@ namespace desk_uwp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class sessionView : Page
+    public sealed partial class SessionView : Page
     {
-        public sessionView()
+        public SessionView()
         {
             this.InitializeComponent();
             OnLoad();
@@ -42,26 +43,20 @@ namespace desk_uwp
         }
         private async Task RetrieveSessions()
         {
-            var webRequest = WebRequest.Create("http://localhost:8000/desk/session/list/");
-            webRequest.Credentials = CredentialCache.DefaultCredentials;
-            webRequest.Method = "POST";
-            webRequest.ContentType = "application/deskdata";
 
-            var response = await webRequest.GetResponseAsync();
-            var responseStream = response.GetResponseStream();
-            var ms = new MemoryStream();
-            responseStream.CopyTo(ms);
-
-            var sessionList = SessionList.Parser.ParseFrom(ms.ToArray());
+            WebGen web = new WebGen("http://localhost:8000/desk/session/list/", "POST", "application/deskdata");
+            Request blank = new Request {};
+            MemoryStream mem = await web.GetResponse();
+            var sessionList = SessionList.Parser.ParseFrom(mem.ToArray());
             foreach(var session in sessionList.SessionList_)
             {
-                sessionListView.Items.Add("Session " + session.TimeStart + " started by " + session.Username);
+                SessionListView.Items?.Add("Session " + session.TimeStart + " started by " + session.Username);
             }
         }
 
         private async void addSession_Click(object sender, RoutedEventArgs e)
         {
-            if (await createSession())
+            if (await CreateSession())
             {
                 this.Frame.Navigate(typeof(DeskView));
             }
@@ -73,19 +68,13 @@ namespace desk_uwp
            
         }
 
-        private async Task<bool> createSession()
+        private static async Task<bool> CreateSession()
         {
-            WebRequest webRequest = WebRequest.Create("http://localhost:8000/desk/session/create/");
-            webRequest.Credentials = CredentialCache.DefaultCredentials;
-            webRequest.Method = "POST";
-            webRequest.ContentType = "application/deskdata";
 
-            WebResponse response = await webRequest.GetResponseAsync();
-            Stream responseStream = response.GetResponseStream();
-            MemoryStream ms = new MemoryStream();
-            responseStream.CopyTo(ms);
-
-            Session newSession = Session.Parser.ParseFrom(ms.ToArray());
+            WebGen web = new WebGen("http://localhost:8000/desk/session/create/", "POST", "application/deskdata");
+            Request blank = new Request { };
+            MemoryStream mem = await web.GetResponse();
+            Session newSession = Session.Parser.ParseFrom(mem.ToArray());
             App.CurrentSession = newSession;
             return true;
 

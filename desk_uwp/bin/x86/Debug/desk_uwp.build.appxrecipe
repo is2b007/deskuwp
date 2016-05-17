@@ -342,9 +342,6 @@
     <AppxPackagedFile Include="C:\Users\Kosta\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\BackgroundData\BackgroundData\bin\x86\Debug\BackgroundData.winmd">
-      <PackagePath>BackgroundData.winmd</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>

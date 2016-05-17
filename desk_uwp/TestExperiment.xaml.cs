@@ -30,14 +30,14 @@ namespace desk_uwp
             this.InitializeComponent();
 
             // Set supported inking device types.
-            inkCanvas.InkPresenter.InputDeviceTypes =
+            InkCanvas.InkPresenter.InputDeviceTypes =
                 Windows.UI.Core.CoreInputDeviceTypes.Mouse |
                 Windows.UI.Core.CoreInputDeviceTypes.Pen;
 
             // Listen for button click to initiate save.
-            btnSave.Click += btnSave_Click;
+            BtnSave.Click += btnSave_Click;
             // Listen for button click to initiate load.
-            btnLoad.Click += btnLoad_Click;
+            BtnLoad.Click += btnLoad_Click;
             // Listen for button click to clear ink canvas.
             //btnClear.Click += btnClear_Click;
         }
@@ -45,7 +45,7 @@ namespace desk_uwp
         private async void btnSave_Click(object sender, RoutedEventArgs e)
         {
             // Get all strokes on the InkCanvas.
-            IReadOnlyList<InkStroke> currentStrokes = inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
+            IReadOnlyList<InkStroke> currentStrokes = InkCanvas.InkPresenter.StrokeContainer.GetStrokes();
             
             // Strokes present on ink canvas.
             if (currentStrokes.Count > 0)
@@ -76,7 +76,7 @@ namespace desk_uwp
                     // Write the ink strokes to the output stream.
                     using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
                     {
-                        await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+                        await InkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
                         await outputStream.FlushAsync();
                     }
                     stream.Dispose();
@@ -120,7 +120,7 @@ namespace desk_uwp
                 // Read from file.
                 using (var inputStream = stream.GetInputStreamAt(0))
                 {
-                    await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    await InkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
                     //await inkCanvas.InkPresenter.StrokeContainer.
                 }
                 stream.Dispose();

@@ -35,7 +35,7 @@ namespace desk_uwp.protobuf
 
         public async Task SendRequestData(IMessage source)
         {
-            source.WriteTo(await Web.GetRequestStreamAsync());
+            source?.WriteTo(await Web.GetRequestStreamAsync());
         }
 
         public async Task<MemoryStream> GetResponse()

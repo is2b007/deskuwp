@@ -133,11 +133,11 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[6];
-            _typeNameTable[0] = "desk_uwp.SessionView";
+            _typeNameTable[0] = "desk_uwp.sessionView";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "desk_uwp.DeskView";
-            _typeNameTable[4] = "desk_uwp.LoginPage";
+            _typeNameTable[4] = "desk_uwp.loginPage";
             _typeNameTable[5] = "desk_uwp.TestExperiment";
 
             _typeTable = new global::System.Type[6];
@@ -181,9 +181,9 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_SessionView() { return new global::desk_uwp.SessionView(); }
+        private object Activate_0_sessionView() { return new global::desk_uwp.SessionView(); }
         private object Activate_3_DeskView() { return new global::desk_uwp.DeskView(); }
-        private object Activate_4_LoginPage() { return new global::desk_uwp.LoginPage(); }
+        private object Activate_4_loginPage() { return new global::desk_uwp.LoginPage(); }
         private object Activate_5_TestExperiment() { return new global::desk_uwp.TestExperiment(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -196,9 +196,9 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  desk_uwp.SessionView
+            case 0:   //  desk_uwp.sessionView
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_SessionView;
+                userType.Activator = Activate_0_sessionView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -218,9 +218,9 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  desk_uwp.LoginPage
+            case 4:   //  desk_uwp.loginPage
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_LoginPage;
+                userType.Activator = Activate_4_loginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -24,18 +24,18 @@ using desk_uwp.protobuf;
 namespace desk_uwp
 {
 
-    public sealed partial class loginPage : Page
+    public sealed partial class LoginPage : Page
     {
-        public loginPage()
+        public LoginPage()
         {
             this.InitializeComponent();
         }
 
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            await login();   
+            await Login();   
         }
-        private async Task login()
+        private async Task Login()
         {
             //Lets do a try and catch with webgen object to request and respond
             try
@@ -44,8 +44,8 @@ namespace desk_uwp
                 WebGen web = new WebGen("http://localhost:8000/desk/login/", "POST", "application/deskdata");
                 Request userData = new Request
                 {
-                    Username = usernameTextbox.Password,
-                    Password = passwordTextbox.Password
+                    Username = UsernameTextbox.Password,
+                    Password = PasswordTextbox.Password
                 };
                 //create a userData request proto and fill it with username and password
                 await web.SendRequestData(userData);
@@ -54,7 +54,7 @@ namespace desk_uwp
                 Response authInfo = Response.Parser.ParseFrom(mem.ToArray());
                 if (authInfo.Success == true)
                 {
-                    this.Frame.Navigate(typeof(sessionView));
+                    this.Frame.Navigate(typeof(SessionView));
                     //if we returned a success from the response goto next screen
                 }
                 else

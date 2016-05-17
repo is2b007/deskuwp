@@ -43,7 +43,7 @@ namespace desk_uwp
         {
             this.InitializeComponent();
 
-            inkCanvas.InkPresenter.InputDeviceTypes =
+            InkCanvas.InkPresenter.InputDeviceTypes =
             Windows.UI.Core.CoreInputDeviceTypes.Mouse |
             Windows.UI.Core.CoreInputDeviceTypes.Pen |
             Windows.UI.Core.CoreInputDeviceTypes.Touch;
@@ -53,9 +53,9 @@ namespace desk_uwp
             drawingAttributes.Color = Windows.UI.Colors.Black;
             drawingAttributes.IgnorePressure = false;
             drawingAttributes.FitToCurve = true;
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
-            inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
-            _inkCollector = new InkDataManager(inkCanvas);
+            InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
+            InkCanvas.InkPresenter.StrokeContainer.GetStrokes();
+            _inkCollector = new InkDataManager(InkCanvas);
         }
 
         private async System.Threading.Tasks.Task SaveStrokesTask()
@@ -66,9 +66,9 @@ namespace desk_uwp
 
         private void OnPenColorChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (inkCanvas == null) return;
+            if (InkCanvas == null) return;
             InkDrawingAttributes drawingAttributes =
-                inkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
+                InkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
 
             string value = ((ComboBoxItem)PenColor.SelectedItem).Content.ToString();
 
@@ -85,7 +85,7 @@ namespace desk_uwp
                     break;
             };
 
-            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
+            InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
         }
 
         private void inkCanvas_PointerMoved(object sender, PointerRoutedEventArgs e)

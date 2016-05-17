@@ -1,2 +1,1 @@
-C:\Users\Kosta\Documents\Visual Studio 2015\Projects\BackgroundData\BackgroundData\BackgroundData.csproj;x86
 C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\desk_uwp.csproj;x86

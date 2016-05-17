@@ -155,12 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BackgroundData\BackgroundData\BackgroundData.csproj">
-      <Project>{0f81385b-330f-4eee-891e-4b124837f023}</Project>
-      <Name>BackgroundData</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

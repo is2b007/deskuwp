@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="desk_uwp.sessionView"
+    x:Class="desk_uwp.SessionView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:desk_uwp"
@@ -11,11 +11,11 @@
         <!-- Width is not set on the green and yellow rectangles.
          It's determined by the RelativePanel properties. -->
         <Image Source="Assets/background.jpg" Stretch="Fill" />
-        <TextBlock x:ConnectionId='1' x:Name="textBlock" HorizontalAlignment="Left" Margin="-613.333,-413,0,0" TextWrapping="Wrap" Text="Server List" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="95" VerticalAlignment="Top" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        <Button x:ConnectionId='2' x:Name="addSession" Content="Add Session" HorizontalAlignment="Left" Margin="548.333,-384,-449.667,0" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                         />
-        <TextBlock x:ConnectionId='3' x:Name="copyright" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="Alpha 0.1" VerticalAlignment="Bottom" Width="67" Margin="-67,-20,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
-        <ListView x:ConnectionId='4' x:Name="sessionListView" HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="1314" Margin="58,194,-1370.667,-829" RenderTransformOrigin="0.463,0.497"/>
-        <Button x:ConnectionId='5' x:Name="playbackSession" Content="Playback Session" HorizontalAlignment="Left" Margin="-596.667,385,0,-417" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                              />
+        <TextBlock x:ConnectionId='1' x:Name="TextBlock" HorizontalAlignment="Left" Margin="-613.333,-413,0,0" TextWrapping="Wrap" Text="Server List" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="95" VerticalAlignment="Top" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        <Button x:ConnectionId='2' x:Name="AddSession" Content="Add Session" HorizontalAlignment="Left" Margin="548.333,-384,-449.667,0" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                         />
+        <TextBlock x:ConnectionId='3' x:Name="Copyright" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="Alpha 0.1" VerticalAlignment="Bottom" Width="67" Margin="-67,-20,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+        <ListView x:ConnectionId='4' x:Name="SessionListView" HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="1314" Margin="58,194,-1370.667,-829" RenderTransformOrigin="0.463,0.497"/>
+        <Button x:ConnectionId='5' x:Name="PlaybackSession" Content="Playback Session" HorizontalAlignment="Left" Margin="-596.667,385,0,-417" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                              />
     </RelativePanel>
 </Page>
 
