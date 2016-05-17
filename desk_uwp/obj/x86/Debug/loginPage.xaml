@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="desk_uwp.loginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:desk_uwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel BorderBrush="Black" BorderThickness="10">
+        <!-- Width is not set on the green and yellow rectangles.
+         It's determined by the RelativePanel properties. -->
+        <Image Source="Assets/background.jpg" Stretch="Fill" />
+        <TextBlock x:ConnectionId='1' x:Name="textBlock" HorizontalAlignment="Left" Margin="-47,-140,0,0" TextWrapping="Wrap" Text="DeskX" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="95" VerticalAlignment="Top" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        <PasswordBox x:ConnectionId='2' x:Name="usernameTextbox" Margin="-123,-18,-115,-14" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" PlaceholderText="Username" PasswordRevealMode="Visible" TabNavigation="Cycle" TabIndex="1"/>
+        <PasswordBox x:ConnectionId='3' x:Name="passwordTextbox" Margin="-123,19,-115,-51" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="238" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" PlaceholderText="Password" TabIndex="2" TabNavigation="Cycle"/>
+        <Button x:ConnectionId='4' x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="-9.4,100.6,-1.8,-73.4" VerticalAlignment="Top" Width="238" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                          />
+        <Button x:ConnectionId='5' x:Name="registerButton" Content="Register" HorizontalAlignment="Left" Margin="-8.4,137.6,-2.8,-110.4" VerticalAlignment="Top" Width="238" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        <TextBlock x:ConnectionId='6' x:Name="copyright" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="Alpha 0.1" VerticalAlignment="Bottom" Width="67" Margin="-67,-20,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+    </RelativePanel>
+</Page>
+

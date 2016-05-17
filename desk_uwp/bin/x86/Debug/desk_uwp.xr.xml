@@ -102,8 +102,9 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="PointerMoved" />
+      <RootEvent Name="Loaded" />
     </RootType>
-    <RootType FullName="desk_uwp.deskView" />
+    <RootType FullName="desk_uwp.DeskView" />
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
@@ -114,7 +115,6 @@
       <RootProperty Name="PasswordRevealMode" />
       <RootProperty Name="TabNavigation" />
       <RootProperty Name="TabIndex" />
-      <RootProperty Name="IsTabStop" />
     </RootType>
     <RootType FullName="desk_uwp.loginPage" />
     <RootType FullName="desk_uwp.TestExperiment" />

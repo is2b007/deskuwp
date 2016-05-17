@@ -33,23 +33,27 @@ namespace desk_uwp
         public sessionView()
         {
             this.InitializeComponent();
-            retrieveSessions();
-           
+            OnLoad();
         }
-        private async Task retrieveSessions()
+
+        public async void OnLoad()
         {
-            WebRequest webRequest = WebRequest.Create("http://localhost:8000/desk/session/list/");
+            await RetrieveSessions();
+        }
+        private async Task RetrieveSessions()
+        {
+            var webRequest = WebRequest.Create("http://localhost:8000/desk/session/list/");
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             webRequest.Method = "POST";
             webRequest.ContentType = "application/deskdata";
 
-            WebResponse response = await webRequest.GetResponseAsync();
-            Stream responseStream = response.GetResponseStream();
-            MemoryStream ms = new MemoryStream();
+            var response = await webRequest.GetResponseAsync();
+            var responseStream = response.GetResponseStream();
+            var ms = new MemoryStream();
             responseStream.CopyTo(ms);
 
-            SessionList sessionList = SessionList.Parser.ParseFrom(ms.ToArray());
-            foreach(Session session in sessionList.SessionList_)
+            var sessionList = SessionList.Parser.ParseFrom(ms.ToArray());
+            foreach(var session in sessionList.SessionList_)
             {
                 sessionListView.Items.Add("Session " + session.TimeStart + " started by " + session.Username);
             }
@@ -59,7 +63,7 @@ namespace desk_uwp
         {
             if (await createSession())
             {
-                this.Frame.Navigate(typeof(deskView));
+                this.Frame.Navigate(typeof(DeskView));
             }
             else
             {

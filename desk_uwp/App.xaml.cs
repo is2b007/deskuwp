@@ -23,8 +23,6 @@ namespace desk_uwp
     /// </summary>
     sealed partial class App : Application
     {
-        private static Session currentSession;
-
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -38,18 +36,7 @@ namespace desk_uwp
             this.Suspending += OnSuspending;
         }
 
-        public static Session CurrentSession
-        {
-            get
-            {
-                return currentSession;
-            }
-
-            set
-            {
-                currentSession = value;
-            }
-        }
+        public static Session CurrentSession { get; set; }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

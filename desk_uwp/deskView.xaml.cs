@@ -21,6 +21,13 @@ using System.Net;
 using Google.Protobuf;
 using Windows.Security.Cryptography;
 using System.IO.Compression;
+using System.Threading;
+using Windows.ApplicationModel.Background;
+using desk_uwp.protobuf;
+using Windows.System.Threading;
+using Windows.UI.Core;
+using Windows.UI.WebUI;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,9 +36,10 @@ namespace desk_uwp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class deskView : Page
+    public sealed partial class DeskView : Page
     {
-        public deskView()
+        InkDataManager _inkCollector;
+        public DeskView()
         {
             this.InitializeComponent();
 
@@ -47,72 +55,37 @@ namespace desk_uwp
             drawingAttributes.FitToCurve = true;
             inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
             inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
-            
+            _inkCollector = new InkDataManager(inkCanvas);
         }
-        public async Task<bool> saveStrokes()
+
+        private async System.Threading.Tasks.Task SaveStrokesTask()
         {
-            InkStrokeContainer strokes = new InkStrokeContainer(); 
-            if (inkCanvas.InkPresenter.StrokeContainer.GetStrokes().Count > 0)
-            {
-                for(int i = 0; i < inkCanvas.InkPresenter.StrokeContainer.GetStrokes().Count; i++)
-                {
-                    InkStroke stroke = inkCanvas.InkPresenter.StrokeContainer.GetStrokes()[i].Clone();
-                    strokes.AddStroke(stroke);
-                }
-                MemoryStream ms = new MemoryStream();
-                await strokes.SaveAsync(ms.AsOutputStream());
-
-                WebRequest webRequest = WebRequest.Create("http://localhost:8000/desk/session/object/store/");
-                webRequest.Credentials = CredentialCache.DefaultCredentials;
-                webRequest.Method = "POST";
-                webRequest.ContentType = "application/deskdata";
-                var dt = new DateTime(2010, 1, 1, 1, 1, 1, DateTimeKind.Utc);
-                string s = dt.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss \"GMT\"zzz");
-                SessionObject sessionData = new SessionObject
-                {
-                    Session = App.CurrentSession,
-                    Type = "InkStroke",
-                    Data = Convert.ToBase64String(ms.ToArray()),
-                    InsertTime = s,
-
-                };
-                MessageExtensions.WriteTo(sessionData, await webRequest.GetRequestStreamAsync());
-
-                WebResponse response = await webRequest.GetResponseAsync();
-                Stream responseStream = response.GetResponseStream();
-                ms = new MemoryStream();
-                responseStream.CopyTo(ms);
-
-                SessionResponse sessionResponse = SessionResponse.Parser.ParseFrom(ms.ToArray());
-                return !sessionResponse.Error;
-
-            }
-            return true;
+            await _inkCollector.SendInk();
         }
+
+
         private void OnPenColorChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (inkCanvas != null)
+            if (inkCanvas == null) return;
+            InkDrawingAttributes drawingAttributes =
+                inkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
+
+            string value = ((ComboBoxItem)PenColor.SelectedItem).Content.ToString();
+
+            switch (value)
             {
-                InkDrawingAttributes drawingAttributes =
-                    inkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
+                case "Black":
+                    drawingAttributes.Color = Windows.UI.Colors.Black;
+                    break;
+                case "Red":
+                    drawingAttributes.Color = Windows.UI.Colors.Red;
+                    break;
+                default:
+                    drawingAttributes.Color = Windows.UI.Colors.Black;
+                    break;
+            };
 
-                string value = ((ComboBoxItem)PenColor.SelectedItem).Content.ToString();
-
-                switch (value)
-                {
-                    case "Black":
-                        drawingAttributes.Color = Windows.UI.Colors.Black;
-                        break;
-                    case "Red":
-                        drawingAttributes.Color = Windows.UI.Colors.Red;
-                        break;
-                    default:
-                        drawingAttributes.Color = Windows.UI.Colors.Black;
-                        break;
-                };
-
-                inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
-            }
+            inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
         }
 
         private void inkCanvas_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -122,7 +95,14 @@ namespace desk_uwp
 
         private async void saveStroke_Click(object sender, RoutedEventArgs e)
         {
-            await saveStrokes();
+//            DEBUG
+            await _inkCollector.SendInk();
+        }
+
+        private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+//          When the inkcanvas loads begin to start sending inkdata to server.
+            await _inkCollector.SendInk();
         }
     }
 }

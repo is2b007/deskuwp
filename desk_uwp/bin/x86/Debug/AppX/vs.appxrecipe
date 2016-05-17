@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>24fb9f05-9fd7-49ce-a046-3865e9699018</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>5700A8A258149F711BE3CA0ACBCC5F6A7E6F39824410A6274DA1B384DCA74DA9</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>ECB2B87DF05BC80D99479027A9140F23427A613F3C18BA88BEF4D4C9850A7680</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>24fb9f05-9fd7-49ce-a046-3865e9699018_1.0.0.0_x86__y3zbjdf7anyet</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>24fb9f05-9fd7-49ce-a046-3865e9699018_y3zbjdf7anyet!App</RegisteredUserModeAppID>
     <RegisteredPackageID>24fb9f05-9fd7-49ce-a046-3865e9699018</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-15T10:46:00.922</Modified>
+      <Modified>2016-05-17T07:25:50.722</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.exe">
       <PackagePath>entrypoint\desk_uwp.exe</PackagePath>
-      <Modified>2016-05-15T10:46:00.204</Modified>
+      <Modified>2016-05-17T07:25:49.264</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\.nuget\packages\Google.Protobuf\3.0.0-beta2\lib\dotnet\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -458,6 +458,10 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T13:41:12.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\BackgroundData\BackgroundData\bin\x86\Debug\BackgroundData.winmd">
+      <PackagePath>BackgroundData.winmd</PackagePath>
+      <Modified>2016-05-17T05:08:53.550</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-05-03T02:23:16.518</Modified>
@@ -506,7 +510,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.xr.xml">
       <PackagePath>desk_uwp.xr.xml</PackagePath>
-      <Modified>2016-05-15T10:46:00.013</Modified>
+      <Modified>2016-05-17T07:25:49.005</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -514,11 +518,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-15T10:46:00.691</Modified>
+      <Modified>2016-05-17T07:25:50.449</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\bin\x86\Debug\Core\desk_uwp.exe">
       <PackagePath>desk_uwp.exe</PackagePath>
-      <Modified>2016-05-15T10:46:00.916</Modified>
+      <Modified>2016-05-17T07:25:50.715</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -10,34 +11,48 @@ using System.IO;
 
 namespace desk_uwp.protobuf
 {
-    class webGen
+    internal class WebGen
     {
-        private WebRequest web;
-        MemoryStream memStream = new MemoryStream();
+        internal MemoryStream MemStream = new MemoryStream();
 
-        public webGen(string url, string method, string contentType)
+        public WebRequest Web { get; set; }
+
+        public WebGen(string url, string method, string contentType)
         {
-            web = WebRequest.Create(url);
-            //WebRequest webRequest = WebRequest.Create("http://localhost:8000/desk/login/");
-            web.Credentials = CredentialCache.DefaultCredentials;
-            //web.Method = "POST";
-            web.Method = method;
-            web.ContentType = contentType;
-            //web.ContentType = "application/deskdata";
-
+            try
+            {
+                Web = WebRequest.Create(url);
+                Web.Credentials = CredentialCache.DefaultCredentials;
+                Web.Method = method;
+                Web.ContentType = contentType;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.ToString());
+                throw;
+            }
         }
 
-        public async Task sendRequestData(Request source)
+        public async Task SendRequestData(IMessage source)
         {
-            MessageExtensions.WriteTo(source, await web.GetRequestStreamAsync());
+            source.WriteTo(await Web.GetRequestStreamAsync());
         }
 
-        public async Task<MemoryStream> getResponse()
+        public async Task<MemoryStream> GetResponse()
         {
-            WebResponse response = await web.GetResponseAsync();
-            Stream responseStream = response.GetResponseStream();
-            responseStream.CopyTo(memStream);
-            return memStream;
+            try
+            {
+                WebResponse response = await Web.GetResponseAsync();
+                Stream responseStream = response.GetResponseStream();
+                responseStream.CopyTo(MemStream);
+                return MemStream;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }

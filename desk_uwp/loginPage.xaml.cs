@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -40,15 +41,15 @@ namespace desk_uwp
             try
             {
             //contrusct a webgen object and pass url, content method and content type
-                webGen web = new webGen("http://localhost:8000/desk/login/", "POST", "application/deskdata");
+                WebGen web = new WebGen("http://localhost:8000/desk/login/", "POST", "application/deskdata");
                 Request userData = new Request
                 {
                     Username = usernameTextbox.Password,
                     Password = passwordTextbox.Password
                 };
                 //create a userData request proto and fill it with username and password
-                await web.sendRequestData(userData);
-                MemoryStream mem = await web.getResponse();
+                await web.SendRequestData(userData);
+                MemoryStream mem = await web.GetResponse();
                 //get response from the webgen object and then parse it into a readable protobuf object
                 Response authInfo = Response.Parser.ParseFrom(mem.ToArray());
                 if (authInfo.Success == true)
@@ -65,6 +66,7 @@ namespace desk_uwp
             }
             catch(Exception e)
             {
+                Debug.WriteLine(e.ToString());
                 //Lets return false if we can't connect to server or complete the web request
                 var dialog = new MessageDialog("Can't connect to Server.");
                 await dialog.ShowAsync();

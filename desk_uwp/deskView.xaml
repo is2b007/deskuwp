@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="desk_uwp.deskView"
+    x:Class="desk_uwp.DeskView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:desk_uwp"
@@ -20,7 +20,7 @@
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="Fill" />
         <Viewbox x:Name="viewInk" HorizontalAlignment="Center" Stretch="Fill">
-            <InkCanvas x:Name="inkCanvas" Width="1000" Height="1000" PointerMoved="inkCanvas_PointerMoved"/>
+            <InkCanvas x:Name="inkCanvas" Width="1000" Height="1000" PointerMoved="inkCanvas_PointerMoved" Loaded="inkCanvas_Loaded"/>
         </Viewbox>
         <Grid HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Grid.RowDefinitions>
