@@ -98,8 +98,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="protobuf\AuthManager.cs" />
     <Compile Include="protobuf\InkDataManager.cs" />
     <Compile Include="protobuf\Session.cs" />
+    <Compile Include="protobuf\SessionManager.cs" />
     <Compile Include="protobuf\webGen.cs" />
     <Compile Include="sessionView.xaml.cs">
       <DependentUpon>sessionView.xaml</DependentUpon>

@@ -19,7 +19,7 @@ namespace desk_uwp.protobuf
     {
         private InkCanvas _sourceCanvas;
         private int _lastIndex;
-        bool _isDone = false;
+        private bool _isDone = false;
         private string _lastInkDate = "NO";
         private bool _allReceived = false;
 

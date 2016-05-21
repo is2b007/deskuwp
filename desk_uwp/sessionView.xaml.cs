@@ -70,7 +70,6 @@ namespace desk_uwp
 
         private static async Task<bool> CreateSession()
         {
-
             WebGen web = new WebGen("http://localhost:8000/desk/session/create/", "POST", "application/deskdata");
             Request blank = new Request { };
             MemoryStream mem = await web.GetResponse();

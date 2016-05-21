@@ -41,7 +41,7 @@ namespace desk_uwp
         InkDataManager _inkCollector;
         public DeskView()
         {
-            this.InitializeComponent();
+              this.InitializeComponent();
 
             InkCanvas.InkPresenter.InputDeviceTypes =
             Windows.UI.Core.CoreInputDeviceTypes.Mouse |
