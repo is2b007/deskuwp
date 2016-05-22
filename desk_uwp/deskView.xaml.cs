@@ -42,7 +42,7 @@ namespace desk_uwp
         public DeskView()
         {
               this.InitializeComponent();
-
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             InkCanvas.InkPresenter.InputDeviceTypes =
             Windows.UI.Core.CoreInputDeviceTypes.Mouse |
             Windows.UI.Core.CoreInputDeviceTypes.Pen |
@@ -70,39 +70,45 @@ namespace desk_uwp
             InkDrawingAttributes drawingAttributes =
                 InkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
 
-            string value = ((ComboBoxItem)PenColor.SelectedItem).Content.ToString();
-
-            switch (value)
+            var comboBoxItem = (ComboBoxItem)PenColor.SelectedItem;
+            if (comboBoxItem?.Content != null)
             {
-                case "Black":
-                    drawingAttributes.Color = Windows.UI.Colors.Black;
-                    break;
-                case "Red":
-                    drawingAttributes.Color = Windows.UI.Colors.Red;
-                    break;
-                default:
-                    drawingAttributes.Color = Windows.UI.Colors.Black;
-                    break;
-            };
+                string value = comboBoxItem.Content.ToString();
+
+                switch (value)
+                {
+                    case "Black":
+                        drawingAttributes.Color = Windows.UI.Colors.Black;
+                        break;
+                    case "Red":
+                        drawingAttributes.Color = Windows.UI.Colors.Red;
+                        break;
+                    case "Green":
+                        drawingAttributes.Color = Windows.UI.Colors.Green;
+                        break;
+                    default:
+                        drawingAttributes.Color = Windows.UI.Colors.Black;
+                        break;
+                }
+            }
+            ;
 
             InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
-        }
-
-        private void inkCanvas_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-
         }
 
         private async void saveStroke_Click(object sender, RoutedEventArgs e)
         {
 //            DEBUG
             await _inkCollector.SendInk();
+            await _inkCollector.GetInk();
         }
 
         private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
         {
 //          When the inkcanvas loads begin to start sending inkdata to server.
             await _inkCollector.SendInk();
+            await _inkCollector.GetInk();
         }
+        
     }
 }

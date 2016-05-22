@@ -34,7 +34,7 @@ namespace desk_uwp.protobuf
             try
             {
                 //contrusct a webgen object and pass url, content method and content type
-                WebGen web = new WebGen("http://localhost:8000/desk/login/", "POST", "application/deskdata");
+                WebGen web = new WebGen(App.Server + "desk/login/", "POST", "application/deskdata");
                 Request userData = new Request
                 {
                     Username = username,

@@ -416,7 +416,6 @@ C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\App.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\sessionView.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\deskView.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\loginPage.xbf
-C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\TestExperiment.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.xr.xml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.exe
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.pdb
@@ -541,19 +540,15 @@ C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\deskView.g.i.cs
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\deskView.g.cs
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\loginPage.g.i.cs
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\loginPage.g.cs
-C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\TestExperiment.g.i.cs
-C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\TestExperiment.g.cs
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\XamlTypeInfo.g.cs
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\App.xaml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\sessionView.xaml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\deskView.xaml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\loginPage.xaml
-C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\TestExperiment.xaml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\App.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\sessionView.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\deskView.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\loginPage.xbf
-C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\TestExperiment.xbf
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\desk_uwp.exe
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\desk_uwp.pdb
@@ -623,3 +618,8 @@ C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\qualifiers.txt
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\SessionDialog.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\SessionDialog.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\SessionDialog.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\SessionDialog.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\x86\Debug\SessionDialog.xbf

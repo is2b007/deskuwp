@@ -26,12 +26,12 @@ namespace desk_uwp.protobuf
             }
         }
 
-        public async Task<bool> CreateSession()
+        public async Task<bool> CreateSession(string name)
         {
 
             try
             {
-                WebGen web = new WebGen("http://localhost:8000/desk/session/create/", "POST", "application/deskdata");
+                WebGen web = new WebGen(App.Server + "desk/session/create/", "POST", "application/deskdata");
                 Request blank = new Request { };
                 MemoryStream mem = await web.GetResponse();
                 Session newSession = Session.Parser.ParseFrom(mem.ToArray());
@@ -49,7 +49,7 @@ namespace desk_uwp.protobuf
         {
             try
             {
-                WebGen web = new WebGen("http://localhost:8000/desk/session/join/", "POST", "application/deskdata");
+                WebGen web = new WebGen(App.Server + "desk/session/join/", "POST", "application/deskdata");
                 Session newSession = new Session()
                 {
                     Id = sessionId

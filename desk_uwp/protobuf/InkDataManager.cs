@@ -55,7 +55,7 @@ namespace desk_uwp.protobuf
                 MemoryStream ms = new MemoryStream();
                 await strokes.SaveAsync(ms.AsOutputStream());
 
-                WebGen web = new WebGen("http://localhost:8000/desk/session/object/store/", "POST",
+                WebGen web = new WebGen(App.Server + "desk/session/object/store/", "POST",
                     "application/deskdata");
                 SessionObject sessionData = new SessionObject
                 {

@@ -132,21 +132,27 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
-            _typeNameTable[0] = "desk_uwp.SessionView";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "desk_uwp.DeskView";
-            _typeNameTable[4] = "desk_uwp.LoginPage";
-            _typeNameTable[5] = "desk_uwp.TestExperiment";
+            _typeNameTable = new string[9];
+            _typeNameTable[0] = "desk_uwp.SessionDialog";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[3] = "String";
+            _typeNameTable[4] = "desk_uwp.SessionView";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[7] = "desk_uwp.DeskView";
+            _typeNameTable[8] = "desk_uwp.LoginPage";
 
-            _typeTable = new global::System.Type[6];
-            _typeTable[0] = typeof(global::desk_uwp.SessionView);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::desk_uwp.DeskView);
-            _typeTable[4] = typeof(global::desk_uwp.LoginPage);
-            _typeTable[5] = typeof(global::desk_uwp.TestExperiment);
+            _typeTable = new global::System.Type[9];
+            _typeTable[0] = typeof(global::desk_uwp.SessionDialog);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[3] = typeof(global::System.String);
+            _typeTable[4] = typeof(global::desk_uwp.SessionView);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[7] = typeof(global::desk_uwp.DeskView);
+            _typeTable[8] = typeof(global::desk_uwp.LoginPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -181,10 +187,10 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_SessionView() { return new global::desk_uwp.SessionView(); }
-        private object Activate_3_DeskView() { return new global::desk_uwp.DeskView(); }
-        private object Activate_4_LoginPage() { return new global::desk_uwp.LoginPage(); }
-        private object Activate_5_TestExperiment() { return new global::desk_uwp.TestExperiment(); }
+        private object Activate_0_SessionDialog() { return new global::desk_uwp.SessionDialog(); }
+        private object Activate_4_SessionView() { return new global::desk_uwp.SessionView(); }
+        private object Activate_7_DeskView() { return new global::desk_uwp.DeskView(); }
+        private object Activate_8_LoginPage() { return new global::desk_uwp.LoginPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -196,38 +202,51 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  desk_uwp.SessionView
-                userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_SessionView;
+            case 0:   //  desk_uwp.SessionDialog
+                userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
+                userType.Activator = Activate_0_SessionDialog;
+                userType.AddMemberName("Text");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Windows.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  desk_uwp.DeskView
+            case 3:   //  String
+                xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  desk_uwp.SessionView
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_DeskView;
+                userType.Activator = Activate_4_SessionView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  desk_uwp.LoginPage
+            case 5:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  desk_uwp.DeskView
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_LoginPage;
+                userType.Activator = Activate_7_DeskView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  desk_uwp.TestExperiment
+            case 8:   //  desk_uwp.LoginPage
                 userType = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_TestExperiment;
+                userType.Activator = Activate_8_LoginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -236,11 +255,32 @@ namespace desk_uwp.desk_uwp_XamlTypeInfo
         }
 
 
+        private object get_0_SessionDialog_Text(object instance)
+        {
+            var that = (global::desk_uwp.SessionDialog)instance;
+            return that.Text;
+        }
+        private void set_0_SessionDialog_Text(object instance, object Value)
+        {
+            var that = (global::desk_uwp.SessionDialog)instance;
+            that.Text = (global::System.String)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::desk_uwp.desk_uwp_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "desk_uwp.SessionDialog.Text":
+                userType = (global::desk_uwp.desk_uwp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("desk_uwp.SessionDialog");
+                xamlMember = new global::desk_uwp.desk_uwp_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_SessionDialog_Text;
+                xamlMember.Setter = set_0_SessionDialog_Text;
+                break;
+            }
             return xamlMember;
         }
     }

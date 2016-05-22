@@ -11,11 +11,24 @@
         <!-- Width is not set on the green and yellow rectangles.
          It's determined by the RelativePanel properties. -->
         <Image Source="Assets/background.jpg" Stretch="Fill" />
-        <TextBlock x:ConnectionId='1' x:Name="TextBlock" HorizontalAlignment="Left" Margin="-613.333,-413,0,0" TextWrapping="Wrap" Text="Server List" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="95" VerticalAlignment="Top" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        <Button x:ConnectionId='2' x:Name="AddSession" Content="Add Session" HorizontalAlignment="Left" Margin="548.333,-384,-449.667,0" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                         />
-        <TextBlock x:ConnectionId='3' x:Name="Copyright" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="Alpha 0.1" VerticalAlignment="Bottom" Width="67" Margin="-67,-20,0,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
-        <ListView x:ConnectionId='4' x:Name="SessionListView" HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="1314" Margin="58,194,-1370.667,-829" RenderTransformOrigin="0.463,0.497"/>
-        <Button x:ConnectionId='5' x:Name="PlaybackSession" Content="Playback Session" HorizontalAlignment="Left" Margin="-596.667,385,0,-417" VerticalAlignment="Top" Width="128" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"                              />
+        <Pivot x:ConnectionId='1' x:Name="SessionPivot" FontStyle="Normal"  Margin="20,87,20,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" >
+            <PivotItem Header="Live" FontSize="30">
+                <!--Pivot content goes here-->
+                <RelativePanel>
+                    <ListView x:ConnectionId='6' x:Name="SessionListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                </RelativePanel>
+            </PivotItem>
+            <PivotItem Header="Archived">
+                <!--Pivot content goes here-->
+                <RelativePanel>
+                    <ListView x:ConnectionId='5' x:Name="ArchivedListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                </RelativePanel>
+            </PivotItem>
+        </Pivot>
+        <Button x:ConnectionId='2' x:Name="AddSession" Content="New" HorizontalAlignment="Right" Margin="-168,47,37,-83" VerticalAlignment="Top" Width="131"                          Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <TextBlock x:ConnectionId='3' x:Name="SessionLabel" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Session List" VerticalAlignment="Top" Width="282" FontSize="36" Margin="20,32,-221,-62" FontWeight="Bold" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        <Button x:ConnectionId='4' x:Name="JoinSession" Content="Join" HorizontalAlignment="Right" Margin="-307.6,46.6,176.6,-82.6" VerticalAlignment="Top" Width="131"                           Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
     </RelativePanel>
+
 </Page>
 

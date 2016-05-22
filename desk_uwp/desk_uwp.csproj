@@ -103,6 +103,9 @@
     <Compile Include="protobuf\Session.cs" />
     <Compile Include="protobuf\SessionManager.cs" />
     <Compile Include="protobuf\webGen.cs" />
+    <Compile Include="SessionDialog.xaml.cs">
+      <DependentUpon>SessionDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sessionView.xaml.cs">
       <DependentUpon>sessionView.xaml</DependentUpon>
     </Compile>
@@ -114,9 +117,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="protobuf\Authenticate.cs" />
-    <Compile Include="TestExperiment.xaml.cs">
-      <DependentUpon>TestExperiment.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -140,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="SessionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="sessionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,10 +153,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="loginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestExperiment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
