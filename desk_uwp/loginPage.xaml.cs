@@ -42,5 +42,13 @@ namespace desk_uwp
                 this.Frame.Navigate(typeof(SessionView));
             }       
         }
+
+        private async void ServerButton_Click(object sender, RoutedEventArgs e)
+        {
+//            TO DO IMPLEMENT A VALID URL CHECK
+            App.Server = ServerBox.Password;
+            var dialog = new MessageDialog("Server succesfully set to: " + App.Server);
+            await dialog.ShowAsync();
+        }
     }
 }

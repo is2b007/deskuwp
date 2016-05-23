@@ -20,7 +20,7 @@
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="UniformToFill" />
         <Viewbox x:ConnectionId='2' x:Name="ViewInk" HorizontalAlignment="Center" Stretch="Fill">
-            <InkCanvas x:ConnectionId='5' x:Name="InkCanvas" Width="1000" Height="1000"                          />
+            <InkCanvas x:ConnectionId='5' x:Name="InkCanvas" Width="1000" Height="1000"                                                      />
         </Viewbox>
         <Grid HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Grid.RowDefinitions>
@@ -45,6 +45,7 @@
             		                                     Margin="-76.333,0,-2.667,-55" Height="38" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                     <ComboBoxItem Content="Black"/>
                     <ComboBoxItem Content="Red"/>
+                    <ComboBoxItem Content="Blue"/>
                     <ComboBoxItem Content="Green"/>
                     <ComboBoxItem Content="Yellow"/>
                 </ComboBox>

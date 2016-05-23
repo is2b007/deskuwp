@@ -130,6 +130,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="Loaded" />
+      <RootEvent Name="Loading" />
     </RootType>
     <RootType FullName="desk_uwp.DeskView" />
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">

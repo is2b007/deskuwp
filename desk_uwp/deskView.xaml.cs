@@ -86,6 +86,12 @@ namespace desk_uwp
                     case "Green":
                         drawingAttributes.Color = Windows.UI.Colors.Green;
                         break;
+                    case "Yellow":
+                        drawingAttributes.Color = Windows.UI.Colors.Yellow;
+                        break;
+                    case "Blue":
+                        drawingAttributes.Color = Windows.UI.Colors.Blue;
+                        break;
                     default:
                         drawingAttributes.Color = Windows.UI.Colors.Black;
                         break;
@@ -105,10 +111,14 @@ namespace desk_uwp
 
         private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-//          When the inkcanvas loads begin to start sending inkdata to server.
+            //          When the inkcanvas loads begin to start sending inkdata to server.
             await _inkCollector.SendInk();
+            
+        }
+
+        private async void InkCanvas_Loading(FrameworkElement sender, object args)
+        {
             await _inkCollector.GetInk();
         }
-        
     }
 }

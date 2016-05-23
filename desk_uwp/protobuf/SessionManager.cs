@@ -26,7 +26,7 @@ namespace desk_uwp.protobuf
             }
         }
 
-        public async Task<bool> CreateSession(string name)
+        public static async Task<bool> CreateSession(string name)
         {
 
             try
@@ -45,7 +45,7 @@ namespace desk_uwp.protobuf
 
         }
 
-        public async Task<bool> JoinSession(int sessionId)
+        public static async Task<bool> JoinSession(int sessionId)
         {
             try
             {

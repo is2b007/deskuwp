@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -51,13 +52,13 @@ namespace desk_uwp
             var sessionList = SessionList.Parser.ParseFrom(mem.ToArray());
             foreach(var session in sessionList.SessionList_)
             {
-                if (String.IsNullOrEmpty(session.TimeEnd))
+                if (Char.IsNumber(session.TimeEnd[0]))
                 {
-                    SessionListView.Items?.Add("Session " + session.TimeStart + " started by " + session.Username);
+                    ArchivedListView.Items?.Add(session.Id + " - " + session.Title + " by " + session.Username + ": " + session.TimeStart + " - " + session.TimeEnd);
                 }
                 else
                 {
-                    ArchivedListView.Items?.Add(session.Title + "Session " + session.TimeStart + " started by " + session.Username);
+                    SessionListView.Items?.Add(session.Id + " - " + session.Title + " by " + session.Username + ": " + session.TimeStart);
                 }
 
             }
@@ -81,9 +82,19 @@ namespace desk_uwp
             this.Frame.Navigate(typeof(DeskView));
         }
 
-        private void JoinSession_Click(object sender, RoutedEventArgs e)
+        private async void JoinSession_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SessionListView.SelectedItem != null)
+            {
+                string sessionRecord = SessionListView.SelectedItem.ToString();
+                int id = int.Parse(sessionRecord.Substring(0, 2));
+                Debug.WriteLine(id);
+                if (await SessionManager.JoinSession(id))
+                {
+                    this.Frame.Navigate(typeof(DeskView));
+                }
+            }
+            
         }
 
         //        async protected void OnSuspending(object sender, SuspendingEventArgs args)

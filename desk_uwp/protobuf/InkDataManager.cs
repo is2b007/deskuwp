@@ -82,40 +82,42 @@ namespace desk_uwp.protobuf
             
         }
 
-        
-
-
         public async Task GetInk()
         {
 //          session object we're going to send so server can identify which objects we want
 
-            while (!_allReceived)
+            if (!_allReceived)
             {
+                await Task.Delay(TimeSpan.FromSeconds(0.1));
                 Session toSend = new Session
                 {
                     Id = App.CurrentSession.Id,
                     TimeEnd = _lastInkDate,
                 };
-                WebGen web = new WebGen("http://localhost:8000/desk/session/object/get/", "POST", "application/deskdata");
+                WebGen web = new WebGen(App.Server + "desk/session/object/get/", "POST", "application/deskdata");
 //            if the last ink date is no it means we haven't actually received anything yet.
                 await web.SendRequestData(toSend);
                 MemoryStream mem = await web.GetResponse();
                 SessionObjectContainer newSession = SessionObjectContainer.Parser.ParseFrom(mem.ToArray());
-                var lastObject = newSession.Object.Last();
+                var lastObject = newSession.SessionContainer.Last();
                 _lastInkDate = lastObject.InsertTime;
-                foreach (var sessionOjbect in newSession.Object)
+                InkStrokeContainer strokes = new InkStrokeContainer();
+                foreach (var sessionOjbect in newSession.SessionContainer)
                 {
                     var data = new MemoryStream(Convert.FromBase64String(sessionOjbect.Data));
-                    InkStrokeContainer strokes = new InkStrokeContainer();
+//                    await strokes.LoadAsync(data.AsInputStream());   
                     await _sourceCanvas.InkPresenter.StrokeContainer.LoadAsync(data.AsInputStream());
                 }
-//                  if the specified session has an end date then stop receiving data.
-                if (!(string.IsNullOrEmpty(App.CurrentSession.TimeEnd)))
+//                foreach (var item in strokes.GetStrokes())
+//                {
+//                    _sourceCanvas.InkPresenter.StrokeContainer.AddStroke(item);
+//                }
+//                _sourceCanvas.InkPresenter.StrokeContainer.AddStrokes(strokes.GetStrokes());
+                //                  if the specified session has an end date then stop receiving data.
+                if (Char.IsNumber(App.CurrentSession.TimeEnd[0]))
                 {
                     _allReceived = true;
                 }
-
-
             }
         }
     }
