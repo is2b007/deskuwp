@@ -101,17 +101,21 @@ namespace desk_uwp.protobuf
                 SessionObjectContainer newSession = SessionObjectContainer.Parser.ParseFrom(mem.ToArray());
                 var lastObject = newSession.SessionContainer.Last();
                 _lastInkDate = lastObject.InsertTime;
-                InkStrokeContainer strokes = new InkStrokeContainer();
+                
                 foreach (var sessionOjbect in newSession.SessionContainer)
                 {
-                    var data = new MemoryStream(Convert.FromBase64String(sessionOjbect.Data));
-//                    await strokes.LoadAsync(data.AsInputStream());   
-                    await _sourceCanvas.InkPresenter.StrokeContainer.LoadAsync(data.AsInputStream());
+                    MemoryStream data = new MemoryStream(Convert.FromBase64String(sessionOjbect.Data));
+                    InkStrokeContainer strokes = new InkStrokeContainer();
+                    await strokes.LoadAsync(data.AsInputStream());
+                    Debug.WriteLine(strokes.GetStrokes().Count);
+                    foreach (InkStroke item in strokes.GetStrokes())
+                    {
+                        _sourceCanvas.InkPresenter.StrokeContainer.AddStroke(item.Clone());
+                    }                    
+//                    await _sourceCanvas.InkPresenter.StrokeContainer.LoadAsync(data.AsRandomAccessStream());
+//                    _sourceCanvas.InkPresenter.StrokeContainer.Clear();
                 }
-//                foreach (var item in strokes.GetStrokes())
-//                {
-//                    _sourceCanvas.InkPresenter.StrokeContainer.AddStroke(item);
-//                }
+                
 //                _sourceCanvas.InkPresenter.StrokeContainer.AddStrokes(strokes.GetStrokes());
                 //                  if the specified session has an end date then stop receiving data.
                 if (Char.IsNumber(App.CurrentSession.TimeEnd[0]))

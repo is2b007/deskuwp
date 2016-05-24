@@ -104,16 +104,14 @@ namespace desk_uwp
 
         private async void saveStroke_Click(object sender, RoutedEventArgs e)
         {
-//            DEBUG
-            await _inkCollector.SendInk();
-            await _inkCollector.GetInk();
+            //            DEBUG
+            
         }
 
         private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             //          When the inkcanvas loads begin to start sending inkdata to server.
             await _inkCollector.SendInk();
-            
         }
 
         private async void InkCanvas_Loading(FrameworkElement sender, object args)
