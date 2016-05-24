@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-24T09:05:19.756</Modified>
+      <Modified>2016-05-24T10:08:16.168</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\desk_uwp.exe">
       <PackagePath>entrypoint\desk_uwp.exe</PackagePath>
-      <Modified>2016-05-24T09:05:19.346</Modified>
+      <Modified>2016-05-24T10:08:15.809</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\.nuget\packages\Google.Protobuf\3.0.0-beta2\lib\dotnet\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -518,7 +518,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\bin\x86\Debug\Core\desk_uwp.exe">
       <PackagePath>desk_uwp.exe</PackagePath>
-      <Modified>2016-05-24T09:05:19.749</Modified>
+      <Modified>2016-05-24T10:08:16.160</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

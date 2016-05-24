@@ -18,10 +18,11 @@ namespace desk_uwp.protobuf
     class InkDataManager
     {
         private InkCanvas _sourceCanvas;
-        private int _lastIndex;
+        private int _lastIndex = 0;
         private bool _isDone = false;
         private string _lastInkDate = "NO";
         private bool _allReceived = false;
+        private Dictionary<string, string> MyStrokes = new Dictionary<string, string>();
 
         public InkDataManager(InkCanvas source)
         {
@@ -35,9 +36,10 @@ namespace desk_uwp.protobuf
                 await Task.Delay(TimeSpan.FromSeconds(0.1));
                 InkStrokeContainer strokes = new InkStrokeContainer();
                 var readyToGo = false;
-                readyToGo = _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count > 0;
-                readyToGo = _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count != (_lastIndex);
+                readyToGo = _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count > 0     &&
+                            _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count != (_lastIndex);
                 if (!readyToGo) continue;
+
                 Debug.WriteLine("We're comparing last index: " + _lastIndex + " and container count: " +
                                 _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count);
                 //lets loop through the internal inkcanvas and copy the latest strokes into a container
@@ -86,9 +88,9 @@ namespace desk_uwp.protobuf
         {
 //          session object we're going to send so server can identify which objects we want
 
-            if (!_allReceived)
+            while (!_allReceived)
             {
-                await Task.Delay(TimeSpan.FromSeconds(0.1));
+                await Task.Delay(TimeSpan.FromSeconds(0.5));
                 Session toSend = new Session
                 {
                     Id = App.CurrentSession.Id,
@@ -99,6 +101,7 @@ namespace desk_uwp.protobuf
                 await web.SendRequestData(toSend);
                 MemoryStream mem = await web.GetResponse();
                 SessionObjectContainer newSession = SessionObjectContainer.Parser.ParseFrom(mem.ToArray());
+                if (!(newSession.SessionContainer.Count > 0) )continue;
                 var lastObject = newSession.SessionContainer.Last();
                 _lastInkDate = lastObject.InsertTime;
                 
@@ -110,6 +113,7 @@ namespace desk_uwp.protobuf
                     Debug.WriteLine(strokes.GetStrokes().Count);
                     foreach (InkStroke item in strokes.GetStrokes())
                     {
+                        _lastIndex++;
                         _sourceCanvas.InkPresenter.StrokeContainer.AddStroke(item.Clone());
                     }                    
 //                    await _sourceCanvas.InkPresenter.StrokeContainer.LoadAsync(data.AsRandomAccessStream());
@@ -117,8 +121,8 @@ namespace desk_uwp.protobuf
                 }
                 
 //                _sourceCanvas.InkPresenter.StrokeContainer.AddStrokes(strokes.GetStrokes());
-                //                  if the specified session has an end date then stop receiving data.
-                if (Char.IsNumber(App.CurrentSession.TimeEnd[0]))
+//                  if the specified session has an end date then stop receiving data.
+                if (! App.CurrentSession.TimeEnd.Equals(""))
                 {
                     _allReceived = true;
                 }

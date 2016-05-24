@@ -52,6 +52,7 @@ namespace desk_uwp
             var sessionList = SessionList.Parser.ParseFrom(mem.ToArray());
             foreach(var session in sessionList.SessionList_)
             {
+                Debug.WriteLine(session.TimeStart);
                 if (Char.IsNumber(session.TimeEnd[0]))
                 {
                     ArchivedListView.Items?.Add(session.Id + " - " + session.Title + " by " + session.Username + ": " + session.TimeStart + " - " + session.TimeEnd);
