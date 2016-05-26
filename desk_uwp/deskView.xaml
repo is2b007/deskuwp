@@ -19,6 +19,7 @@
 
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="UniformToFill" />
+        <Image x:Name="ImageBox" Margin="39.6,83.6,344.6,78.6" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         <Viewbox x:Name="ViewInk" HorizontalAlignment="Center" Stretch="Fill">
             <InkCanvas x:Name="InkCanvas" Width="1000" Height="1000" Loaded="inkCanvas_Loaded" Loading="InkCanvas_Loading"/>
         </Viewbox>
@@ -52,5 +53,6 @@
             </RelativePanel>
 
         </Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="63" Margin="840.6,555.6,-841.2,-555.6"/>
     </RelativePanel>
 </Page>

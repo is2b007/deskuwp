@@ -33,7 +33,7 @@ namespace desk_uwp.protobuf
             
             while (!_isDone)
             {
-                await Task.Delay(TimeSpan.FromSeconds(0.1));
+                await Task.Delay(TimeSpan.FromSeconds(0.5));
                 InkStrokeContainer strokes = new InkStrokeContainer();
                 var readyToGo = false;
                 readyToGo = _sourceCanvas.InkPresenter.StrokeContainer.GetStrokes().Count > 0     &&
@@ -122,10 +122,10 @@ namespace desk_uwp.protobuf
                 
 //                _sourceCanvas.InkPresenter.StrokeContainer.AddStrokes(strokes.GetStrokes());
 //                  if the specified session has an end date then stop receiving data.
-                if (! App.CurrentSession.TimeEnd.Equals(""))
-                {
-                    _allReceived = true;
-                }
+//                if (! App.CurrentSession.TimeEnd.Equals(""))
+//                {
+//                    _allReceived = true;
+//                }
             }
         }
     }

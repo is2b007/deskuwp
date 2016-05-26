@@ -19,8 +19,9 @@
 
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="UniformToFill" />
-        <Viewbox x:ConnectionId='2' x:Name="ViewInk" HorizontalAlignment="Center" Stretch="Fill">
-            <InkCanvas x:ConnectionId='5' x:Name="InkCanvas" Width="1000" Height="1000"                                                      />
+        <Image x:ConnectionId='2' x:Name="ImageBox" Margin="39.6,83.6,344.6,78.6" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <Viewbox x:ConnectionId='3' x:Name="ViewInk" HorizontalAlignment="Center" Stretch="Fill">
+            <InkCanvas x:ConnectionId='7' x:Name="InkCanvas" Width="1000" Height="1000"                                                      />
         </Viewbox>
         <Grid HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Grid.RowDefinitions>
@@ -29,7 +30,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <RelativePanel>
-                <TextBlock x:ConnectionId='3' x:Name="Header" 
+                <TextBlock x:ConnectionId='5' x:Name="Header" 
             		Text="DeskX Session" 
             		VerticalAlignment="Center"
             		Style="{ThemeResource HeaderTextBlockStyle}" 
@@ -38,7 +39,7 @@
             		Style="{StaticResource SubheaderTextBlockStyle}"
             		VerticalAlignment="Center"
             		Margin="559,17,86.333,6.333" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="38"/>
-                <ComboBox x:ConnectionId='4' x:Name="PenColor"
+                <ComboBox x:ConnectionId='6' x:Name="PenColor"
             		VerticalAlignment="Bottom"
             		SelectedIndex="0"
             		HorizontalAlignment="Right"
@@ -52,6 +53,7 @@
             </RelativePanel>
 
         </Grid>
+        <TextBlock x:ConnectionId='4' x:Name="textBlock" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="63" Margin="840.6,555.6,-841.2,-555.6"/>
     </RelativePanel>
 </Page>
 

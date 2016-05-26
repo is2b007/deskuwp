@@ -199,3 +199,28 @@ C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\ARM\De
 C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Kosta\Documents\Visual Studio 2015\Projects\deskuwp\desk_uwp\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\desk_uwp.csprojResolveAssemblyReference.cache
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\App.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\App.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\SessionDialog.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\SessionDialog.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\sessionView.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\sessionView.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\deskView.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\deskView.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\loginPage.g.i.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\loginPage.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\XamlTypeInfo.g.cs
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\App.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\SessionDialog.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\sessionView.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\deskView.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\loginPage.xaml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\App.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\SessionDialog.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\sessionView.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\deskView.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\loginPage.xbf
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\XamlSaveStateFile.xml
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\desk_uwp.exe
+C:\Users\Kosta\Documents\GitHub\deskuwp\desk_uwp\obj\ARM\Debug\desk_uwp.pdb

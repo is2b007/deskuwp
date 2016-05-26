@@ -27,6 +27,7 @@ using desk_uwp.protobuf;
 using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.WebUI;
+using Windows.UI.Xaml.Media.Imaging;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -104,8 +105,35 @@ namespace desk_uwp
 
         private async void saveStroke_Click(object sender, RoutedEventArgs e)
         {
-            //            DEBUG
-            
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation =
+                Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+            picker.FileTypeFilter.Add(".png");
+
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                this.textBlock.Text = "Picked image: " + file.Name;
+                using (IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                {
+                    // Set the image source to the selected bitmap
+                    BitmapImage bitmapImage = new BitmapImage();
+
+                    await bitmapImage.SetSourceAsync(fileStream);
+                    ImageBox.Source = bitmapImage;
+                    ImageBox.Stretch = Stretch.Uniform;
+                }
+
+            }
+            else
+            {
+                this.textBlock.Text = "Operation cancelled.";
+            }
+
         }
 
         private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
