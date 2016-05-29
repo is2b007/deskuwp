@@ -28,6 +28,9 @@
         <Button x:Name="AddSession" Content="New" HorizontalAlignment="Right" Margin="-168,47,37,-83" VerticalAlignment="Top" Width="131" Click="addSession_Click" Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         <TextBlock x:Name="SessionLabel" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Session List" VerticalAlignment="Top" Width="282" FontSize="36" Margin="20,32,-221,-62" FontWeight="Bold" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
         <Button x:Name="JoinSession" Content="Join" HorizontalAlignment="Right" Margin="-307.6,46.6,176.6,-82.6" VerticalAlignment="Top" Width="131" Click="JoinSession_Click" Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <Button x:Name="RefreshSessionList" HorizontalAlignment="Left" Height="32.7999992370605" VerticalAlignment="Top" Width="44" Margin="235.6,44.6,-214,-44.8" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Click="RefreshSessionList_Click">
+            <SymbolIcon Symbol="Refresh"/>
+        </Button>
     </RelativePanel>
 
 </Page>

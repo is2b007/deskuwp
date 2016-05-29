@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="protobuf\AuthManager.cs" />
     <Compile Include="protobuf\InkDataManager.cs" />
+    <Compile Include="protobuf\MessageDataManager.cs" />
     <Compile Include="protobuf\Session.cs" />
     <Compile Include="protobuf\SessionManager.cs" />
     <Compile Include="protobuf\webGen.cs" />

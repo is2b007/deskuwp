@@ -47,10 +47,15 @@ namespace desk_uwp.protobuf
                 responseStream.CopyTo(MemStream);
                 return MemStream;
             }
-            catch (Exception)
+            catch (WebException e)
             {
-                
-                throw;
+
+                if (e.Status == WebExceptionStatus.Timeout)
+                {
+                    return await GetResponse();
+                    // Handle timeout exception
+                }
+                else throw;
             }
             
         }

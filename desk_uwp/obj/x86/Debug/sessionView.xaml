@@ -15,19 +15,22 @@
             <PivotItem Header="Live" FontSize="30">
                 <!--Pivot content goes here-->
                 <RelativePanel>
-                    <ListView x:ConnectionId='6' x:Name="SessionListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    <ListView x:ConnectionId='7' x:Name="SessionListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
                 </RelativePanel>
             </PivotItem>
             <PivotItem Header="Archived">
                 <!--Pivot content goes here-->
                 <RelativePanel>
-                    <ListView x:ConnectionId='5' x:Name="ArchivedListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    <ListView x:ConnectionId='6' x:Name="ArchivedListView" Margin="10,0,10,10" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
                 </RelativePanel>
             </PivotItem>
         </Pivot>
         <Button x:ConnectionId='2' x:Name="AddSession" Content="New" HorizontalAlignment="Right" Margin="-168,47,37,-83" VerticalAlignment="Top" Width="131"                          Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         <TextBlock x:ConnectionId='3' x:Name="SessionLabel" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Session List" VerticalAlignment="Top" Width="282" FontSize="36" Margin="20,32,-221,-62" FontWeight="Bold" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
         <Button x:ConnectionId='4' x:Name="JoinSession" Content="Join" HorizontalAlignment="Right" Margin="-307.6,46.6,176.6,-82.6" VerticalAlignment="Top" Width="131"                           Height="36" RelativePanel.AlignRightWith="" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <Button x:ConnectionId='5' x:Name="RefreshSessionList" HorizontalAlignment="Left" Height="32.7999992370605" VerticalAlignment="Top" Width="44" Margin="235.6,44.6,-214,-44.8" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"                                 >
+            <SymbolIcon Symbol="Refresh"/>
+        </Button>
     </RelativePanel>
 
 </Page>

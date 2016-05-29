@@ -19,26 +19,41 @@
 
     <RelativePanel BorderBrush="Black" BorderThickness="10">
         <Image Source="Assets/background.jpg" Stretch="UniformToFill" />
-        <Image x:Name="ImageBox" Margin="39.6,83.6,344.6,78.6" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <Image x:Name="ImageBox" Margin="40,104,344,58" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         <Viewbox x:Name="ViewInk" HorizontalAlignment="Center" Stretch="Fill">
             <InkCanvas x:Name="InkCanvas" Width="1000" Height="1000" Loaded="inkCanvas_Loaded" Loading="InkCanvas_Loading"/>
         </Viewbox>
-        <Grid HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="65*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
+        <Grid Margin="-252.6,-1.4,-0.4,-0.4" BorderBrush="Black" BorderThickness="2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
             <RelativePanel>
+                <ListBox x:Name="ChatBox" HorizontalAlignment="Right" Width="248" Foreground="Black" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,0,0,36" BorderBrush="Black" Background="#B2F2F2F2" Loaded="ChatBox_Loaded" SelectionMode="Multiple">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+                <TextBox x:Name="ChatField" HorizontalAlignment="Left" Margin="0,-36,0,-1" TextWrapping="Wrap" BorderBrush="MediumPurple" VerticalAlignment="Top" Width="198" Height="37" RelativePanel.Below="ChatBox" RelativePanel.AlignBottomWithPanel="True" KeyDown="ChatField_KeyDown"/>
+                <Button x:Name="SendButton" Margin="178.4,540,0,-1" BorderBrush="MediumPurple" VerticalAlignment="Top" Width="50" Height="37" FontFamily="Segoe MDL2 Assets" Background="#B2000000" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Foreground="MediumPurple" Click="SendButton_Click">
+                    <SymbolIcon Symbol="Send"/>
+                </Button>
+            </RelativePanel>
+            
+        </Grid>
+        <Grid RenderTransformOrigin="10.738,0.678" Margin="0,6,258,-6" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+
+            <RelativePanel Margin="58,0,10,859">
+                <Button x:Name="BackButton" HorizontalAlignment="Left" Margin="-55,0,0,-66" Width="42" Height="66" FontFamily="Segoe MDL2 Assets" Background="#00000000" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" FontSize="18" Click="BackButton_Click">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
                 <TextBlock x:Name="Header" 
-            		Text="DeskX Session" 
+            		Text="DeskX Session"
             		VerticalAlignment="Center"
             		Style="{ThemeResource HeaderTextBlockStyle}" 
-            		Margin="-100,10,-100,-5" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Normal" HorizontalAlignment="Right" Width="291" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            		Margin="-1,3,-369.6,-64" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Normal" HorizontalAlignment="Right" Width="541" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
                 <TextBlock Text="Pen:"
             		Style="{StaticResource SubheaderTextBlockStyle}"
             		VerticalAlignment="Center"
-            		Margin="559,17,86.333,6.333" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="38"/>
+            		Margin="517.8,11,80.6,-49" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="38"/>
                 <ComboBox x:Name="PenColor"
             		VerticalAlignment="Bottom"
             		SelectedIndex="0"
@@ -50,9 +65,9 @@
                     <ComboBoxItem Content="Green"/>
                     <ComboBoxItem Content="Yellow"/>
                 </ComboBox>
+                
             </RelativePanel>
 
         </Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="63" Margin="840.6,555.6,-841.2,-555.6"/>
     </RelativePanel>
 </Page>

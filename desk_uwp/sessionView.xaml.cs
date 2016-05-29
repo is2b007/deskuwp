@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,6 +24,7 @@ using Windows.ApplicationModel;
 using Google.Protobuf;
 using Windows.UI.Popups;
 using desk_uwp.protobuf;
+using Google.Protobuf.WellKnownTypes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -70,16 +72,7 @@ namespace desk_uwp
             var dialogResult = new SessionDialog();
             var result = await dialogResult.ShowAsync();
             if (result != ContentDialogResult.Primary) return;
-            var text = dialogResult.Text;
-            WebGen web = new WebGen(App.Server + "desk/session/create/", "POST", "application/deskdata");
-            Session blank = new Session
-            {
-                Title = App.SessionName,
-            };
-            await web.SendRequestData(blank);
-            MemoryStream mem = await web.GetResponse();
-            Session newSession = Session.Parser.ParseFrom(mem.ToArray());
-            App.CurrentSession = newSession;
+            await SessionManager.CreateSession();
             this.Frame.Navigate(typeof(DeskView));
         }
 
@@ -98,11 +91,12 @@ namespace desk_uwp
             
         }
 
-        //        async protected void OnSuspending(object sender, SuspendingEventArgs args)
-        //        {
-        //            SuspendingDeferral deferral = args.SuspendingOperation.GetDeferral();
-        //            await SuspensionManager.SaveAsync();
-        //            deferral.Complete();
-        //        }
+        private async void RefreshSessionList_Click(object sender, RoutedEventArgs e)
+        {
+//          Clear the session lists and refresh for sessions
+            ArchivedListView.Items?.Clear();
+            SessionListView.Items?.Clear();
+            await RetrieveSessions();
+        }
     }
 }

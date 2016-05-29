@@ -23,9 +23,11 @@ using Windows.Security.Cryptography;
 using System.IO.Compression;
 using System.Threading;
 using Windows.ApplicationModel.Background;
+using Windows.System;
 using desk_uwp.protobuf;
 using Windows.System.Threading;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.WebUI;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -40,6 +42,7 @@ namespace desk_uwp
     public sealed partial class DeskView : Page
     {
         InkDataManager _inkCollector;
+        MessageDataManager _messageDealer;
         public DeskView()
         {
               this.InitializeComponent();
@@ -57,6 +60,7 @@ namespace desk_uwp
             InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
             InkCanvas.InkPresenter.StrokeContainer.GetStrokes();
             _inkCollector = new InkDataManager(InkCanvas);
+            _messageDealer = new MessageDataManager(ChatBox);
         }
 
         private async System.Threading.Tasks.Task SaveStrokesTask()
@@ -72,6 +76,7 @@ namespace desk_uwp
                 InkCanvas.InkPresenter.CopyDefaultDrawingAttributes();
 
             var comboBoxItem = (ComboBoxItem)PenColor.SelectedItem;
+            Header.Text = App.CurrentSession.Title;
             if (comboBoxItem?.Content != null)
             {
                 string value = comboBoxItem.Content.ToString();
@@ -117,7 +122,6 @@ namespace desk_uwp
             if (file != null)
             {
                 // Application now has read/write access to the picked file
-                this.textBlock.Text = "Picked image: " + file.Name;
                 using (IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
                 {
                     // Set the image source to the selected bitmap
@@ -131,7 +135,8 @@ namespace desk_uwp
             }
             else
             {
-                this.textBlock.Text = "Operation cancelled.";
+                var dialog = new MessageDialog("Can't load file.");
+                await dialog.ShowAsync();
             }
 
         }
@@ -139,12 +144,42 @@ namespace desk_uwp
         private async void inkCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             //          When the inkcanvas loads begin to start sending inkdata to server.
+
             await _inkCollector.SendInk();
+            
         }
 
         private async void InkCanvas_Loading(FrameworkElement sender, object args)
         {
             await _inkCollector.GetInk();
+        }
+
+        private async void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            await _messageDealer.SendMessage(ChatField.Text);
+            ChatField.Text = "";
+        }
+
+        private async void ChatBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            await _messageDealer.GetMessages();
+        }
+
+        private async void ChatField_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Enter)
+            {
+                await _messageDealer.SendMessage(ChatField.Text);
+                ChatField.Text = "";
+            }
+        }
+
+        private async void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            _inkCollector.StopTransmitting();
+            _messageDealer.StopTransmitting();
+            await SessionManager.UpdateSession();
+            this.Frame.Navigate(typeof(SessionView));
         }
     }
 }

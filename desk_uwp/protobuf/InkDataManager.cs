@@ -6,12 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Input.Inking;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using deskx_uwp.protobuf;
 using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
 
 namespace desk_uwp.protobuf
 {
@@ -64,7 +66,7 @@ namespace desk_uwp.protobuf
                     Session = App.CurrentSession,
                     Type = "InkStroke",
                     Data = Convert.ToBase64String(ms.ToArray()),
-                    InsertTime = DateTime.UtcNow.ToString(),
+                    InsertTime = DateTime.UtcNow.ToTimestamp().ToString(),
                 };
                 await web.SendRequestData(sessionData);
                 MemoryStream mem = await web.GetResponse();
@@ -81,22 +83,22 @@ namespace desk_uwp.protobuf
         public void StopTransmitting()
         {
             _isDone = true;
-            
+            _allReceived = true;
         }
 
-        public async Task GetInk()
+        public async Task<bool> GetInk()
         {
 //          session object we're going to send so server can identify which objects we want
 
             while (!_allReceived)
             {
-                await Task.Delay(TimeSpan.FromSeconds(0.5));
+//                await Task.Delay(TimeSpan.FromSeconds(0.5));
                 Session toSend = new Session
                 {
                     Id = App.CurrentSession.Id,
                     TimeEnd = _lastInkDate,
                 };
-                WebGen web = new WebGen(App.Server + "desk/session/object/get/", "POST", "application/deskdata");
+                WebGen web = new WebGen(App.Server + "desk/session/object/get/InkStroke/", "POST", "application/deskdata");
 //            if the last ink date is no it means we haven't actually received anything yet.
                 await web.SendRequestData(toSend);
                 MemoryStream mem = await web.GetResponse();
@@ -119,14 +121,13 @@ namespace desk_uwp.protobuf
 //                    await _sourceCanvas.InkPresenter.StrokeContainer.LoadAsync(data.AsRandomAccessStream());
 //                    _sourceCanvas.InkPresenter.StrokeContainer.Clear();
                 }
-                
-//                _sourceCanvas.InkPresenter.StrokeContainer.AddStrokes(strokes.GetStrokes());
-//                  if the specified session has an end date then stop receiving data.
-//                if (! App.CurrentSession.TimeEnd.Equals(""))
-//                {
-//                    _allReceived = true;
-//                }
+                //                  if the specified session has an end date then stop receiving data.
+                //                if (! App.CurrentSession.TimeEnd.Equals(""))
+                //                {
+                //                    _allReceived = true;
+                //                }
             }
+            return true;
         }
     }
 }
